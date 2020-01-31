@@ -39,10 +39,10 @@ router.post('/api/v1/:model' , handlePost);
 router.put('/api/v1/:model/:id' , handleUpdate);
 router.delete('/api/v1/:model/:id' , handleDelete);
 
-// ======================= REST function ===================== //
+// ======================= CRUD function ===================== //
 
 function handleGetAll(req , res , next) { // use PROMISE
-  req.model.read()
+  req.model.read() // read all the item in the DB
     .then( results =>{
       let count = results.length;
       console.log('++++++++' ,typeof results , typeof count , results);
@@ -52,7 +52,7 @@ function handleGetAll(req , res , next) { // use PROMISE
 
 function handleGetOneById(req , res , next) {
   let id = req.params.id;
-  req.model.read(id)
+  req.model.read(id) // read just one item by using id
     .then( record =>{
       console.log('get oneeeeeeee' , record);
       res.status(200).json(record);
@@ -60,7 +60,7 @@ function handleGetOneById(req , res , next) {
 }
 
 function handlePost(req , res , next) {
-  req.model.create(req.body)
+  req.model.create(req.body) // to create a new item and add it to my DB
     .then( record =>{
       console.log('get oneeeeeeee' , record);
       res.status(201).json(record);
@@ -70,7 +70,7 @@ function handlePost(req , res , next) {
 function handleUpdate(req , res , next) {
 // to update item we need the id and the whole item so we need req.params.id and req.body
   let id = req.params.id;
-  req.model.put( id , req.body)
+  req.model.put( id , req.body) // to update item by using id
     .then( record =>{
       res.json(record);
       console.log('update oneeeeeeee' , record);
@@ -79,7 +79,7 @@ function handleUpdate(req , res , next) {
 
 function handleDelete(req , res , next) {
   let id = req.params.id;
-  req.model.delete(id)
+  req.model.delete(id) // we can delete item from DB by using id
     .then (record =>{
       res.json(record);
       console.log('delte oneeeeeeee' , record);

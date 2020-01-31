@@ -4,7 +4,7 @@
 
 function errorHandler(err, req, res, next) {
   res.status(500);
-  res.statusMessage = 'Generic Server Error!';
+  res.statusMessage = 'Somthing Error in Server !!!';
   res.json({ error: err });
 }
 
