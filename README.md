@@ -16,4 +16,4 @@
 ## DateBase
 I use mongo DB
 ## UML
-whitBoard : ![alt text](assets/lab 09.jpg)
+whitBoard : ![alt text](assets/lab-09.jpg)
