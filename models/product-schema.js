@@ -19,7 +19,11 @@ productSchema.virtual('actualProduct' , {
   foreignField : 'name',
   justOne : false});
 
-productSchema.pre('findOne', function() {
+productSchema.pre('findOne', join)
+/**
+ * no parameter
+ */
+function join() {
   try {
     this.populate('actualProduct');
   } catch(e) {
