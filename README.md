@@ -16,4 +16,4 @@
 ## DateBase
 I use mongo DB
 ## UML
-image : [https://github.com/asharoran-401-advanced-javascript/lab-09/blob/lab-9/assets/lab%2009.jpg]
+whitBoard : ![alt text](assets/lab 09.jpg)
