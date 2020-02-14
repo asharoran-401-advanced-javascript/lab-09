@@ -57,6 +57,7 @@ describe('Api server Category' , () =>{
       .post('/api/v1/category')
       .send(testObj)
       .then( item =>{
+        console.log('iteeem body' , item.body);
         return mockRequest
           .delete(`/api/v1/category/${item.body._id}`)
           .send(testObj)
