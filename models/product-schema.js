@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 //// require Parent Schema
 require('../models/category-schema.js');
 
-const productSchema = mongoose.Schema({
+const productSchema = new mongoose.Schema({
   category : { type : String , require : true},
   display_name : { type : String , require : true},
   description : { type : String },
@@ -19,7 +19,7 @@ productSchema.virtual('actualProduct' , {
   foreignField : 'name',
   justOne : false});
 
-productSchema.pre('findOne', join)
+productSchema.pre('findOne', join);
 /**
  * no parameter
  */
@@ -29,7 +29,7 @@ function join() {
   } catch(e) {
     console.error(e);
   }
-});
+}
 
 module.exports = mongoose.model('products' , productSchema);
 

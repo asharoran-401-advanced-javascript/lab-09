@@ -61,12 +61,13 @@ describe('Api server for Product' , () =>{
       .post('/api/v1/product')
       .send(testObj)
       .then( item =>{
+        console.log('item body deleted' , item.body);
         return mockRequest
-          .delete(`/api/v1/products/${item.body._id}`)
+          .delete(`/api/v1/product/${item.body._id}`)
           .send(testObj)
           .then(results =>{
             console.log('----item deleted------' , results.body);
-            expect(results.status).toBe(500);
+            expect(results.status).toBe(200);
             // eslint-disable-next-line no-undefined
             expect(results.body.value).toBe(undefined);
           });
